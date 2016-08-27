@@ -9,7 +9,7 @@ module Api
           page = params[:page] || 1
           count = params[:count] || 10
 
-          @posts = instance_user.collected_posts.order('posts.created_at DESC').page(page).per(count)
+          @posts = instance_user.collected_posts.order('collections.created_at DESC').page(page).per(count)
 
           json = Response::Collection.new('post', @posts, {current_user_id: current_user.id, page: page, api_version: @api_version}).to_json
 
