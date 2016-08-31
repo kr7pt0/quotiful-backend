@@ -22,9 +22,9 @@ class PushNotification
 
   def self.passphrase
     if Rails.env.eql?('production')
-      'sourcepad'
+      'qjstnfjw216'
     else
-      'quotiful123'
+      'qjstnfjw216'
     end
   end
 
