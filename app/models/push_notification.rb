@@ -5,7 +5,7 @@ class PushNotification
     raw_options.symbolize_keys!
     options = { identifier: 0, badge: 0, custom: {} }.deep_merge(raw_options)
     
-    @device_token = device_token
+    @device_token = device_token.to_s
     @alert = alert
     @identifier = options[:identifier]
     @badge = options[:badge]
