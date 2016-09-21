@@ -242,8 +242,16 @@ class Activity < ActiveRecord::Base
       }
     end
 
+
+    def print_log
+      file = File.open(File.join(Rails.root.to_s, "log/apn.log"), "a")
+      file.puts(self.inspect)
+      file.close
+    end
+
     def self.apn_via_settings(user, actor, activity, details)
       push_notification(user, activity, details[:code], "#{actor.full_name} #{details[:message]}") if user.notifications.send(details[:description])
+      print_log
     end
 
     def self.push_notification(user, activity, code, alert)
