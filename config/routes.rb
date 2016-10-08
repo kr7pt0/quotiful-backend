@@ -75,7 +75,6 @@ Quotiful::Application.routes.draw do
             put 'spam'
           end
 
-          resources :passwords, path: :password, only: [:create]
           resources :collections, only: [:index, :create, :destroy], controller: 'users/collections'
           resources :relationships, path: :relationship, only: [:index, :create], controller: 'users/relationships'
         end
