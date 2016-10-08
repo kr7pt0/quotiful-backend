@@ -1,5 +1,5 @@
 class Users::Mailer < ActionMailer::Base
-  default from: "Quotiful <no-reply@quotiful.com>"
+  default from: "noreply@quotiful.com"
 
   def reset_password_instructions(user_id)
     @user = User.find(user_id)
