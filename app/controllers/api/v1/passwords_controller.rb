@@ -8,7 +8,7 @@ module Api
       def create
         if User.exists?(email: params[:user][:email])
           @user = User.where(email: params[:user][:email]).first
-          # ::Users::Mailer.reset_password_instructions(@user.id).deliver
+           ::Users::Mailer.reset_password_instructions(@user.id).deliver
           render json: { success: true, message: "You will receive an email with instructions about how to confirm your account in a few minutes.", user_id: @user.id.to_s }, status: 200
         else
           render json: { success: false, message: "User does not exist" }, status: 200
