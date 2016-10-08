@@ -67,8 +67,8 @@ Quotiful::Application.configure do
   config.action_mailer.default_url_options = { :host => DEFAULT_HOST }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :user_name => 'quotiful01',
-    :password => 'quotiful123',
+    :user_name => 'borys216307',
+    :password => 'qjstnfjw216',
     :port => 587,
     :address => 'smtp.sendgrid.net',
     :domain => 'www.quotiful.com',
