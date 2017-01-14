@@ -8,7 +8,7 @@ module Api
       def create
         post = current_user.posts.build(params[:post])
         unless post.origin_id.blank?
-          post.origin = Post.find(post.origin_id)
+          post.origin = Post.where(id: params[:id]).first
         end
 
         post.save
