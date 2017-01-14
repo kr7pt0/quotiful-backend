@@ -6,7 +6,11 @@ module Api
       before_filter :validate_post_object, except: [:create, :editors_picks, :popular]
 
       def create
-        post = current_user.posts.  build(params[:post])
+        post = current_user.posts.build(params[:post])
+        unless post.origin_id.blank?
+          post.origin = Post.find(post.origin_id)
+        end
+
         post.save
         
         render json: Response::Object.new('post', post, {current_user_id: current_user.id, api_version: @api_version}).to_json, status: 200
