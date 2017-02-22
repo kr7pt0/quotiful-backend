@@ -23,6 +23,22 @@ module Api
         render json: json, status: 200
       end
 
+      def daily_quote
+        random_quote_from_collections = instance_user.collected_posts.order("RANDOM()").first
+        random_quote_from_portfolio = instance_user.posts.order("RANDOM()").first
+
+        prng = Random.new
+        if prng.rand(1)
+          daily_quote = random_quote_from_collections
+        else
+          daily_quote = random_quote_from_portfolio
+        end
+
+        render json: Response::Object.new('post', daily_quote, {current_user_id: current_user.id, api_version: @api_version}).to_json, status: 200
+      end
+
+
+
       def feed
         hash_conditions = {page: params[:page], count: params[:count]}
         hash_conditions.reject!{ |k,v| v.blank? }
