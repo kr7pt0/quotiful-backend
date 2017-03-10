@@ -34,6 +34,7 @@ module Api
           daily_quote = random_quote_from_portfolio
         end
 
+        Activity.for_post_gets_sent_for_daily_quote(current_user.id, {post_id: daily_quote.id})
         render json: Response::Object.new('post', daily_quote, {current_user_id: current_user.id, api_version: @api_version}).to_json, status: 200
       end
 

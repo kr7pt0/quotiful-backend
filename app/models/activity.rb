@@ -153,6 +153,17 @@ class Activity < ActiveRecord::Base
     push_notification(user, activity, 108, "Your quotiful has been featured!") if user.notifications.post_gets_featured
   end
 
+  def self.for_post_gets_sent_for_daily_quote(user_id, options = {})
+    user, actor, options = set_arguments_for_variables(user_id, nil, options.dup)
+
+    user.activities.for('post_gets_sent_for_daily_quote').create!(
+        tagged_users: {},
+        custom_payloads: {},
+        body: "Your Inspiration has arrived!",
+        post_id: options[:post_id]
+    )
+  end
+
   def self.for_saves_your_quotiful_to(user_id, actor_id, options = {})
     activity_with_post(user_id, actor_id, options, {
       code: 109,

@@ -38,6 +38,8 @@ module Jobs
           Activity.for_post_gets_featured_to(user_id, custom)
         when :saves_your_quotiful
           Activity.for_saves_your_quotiful_to(user_id, actor_id, custom)
+        when :post_gets_sent_for_daily_quote
+          Activity.for_post_gets_sent_for_daily_quote(user_id, custom)
         end
       end
     end
