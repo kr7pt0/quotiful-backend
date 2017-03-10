@@ -158,7 +158,13 @@ class Activity < ActiveRecord::Base
 
     user.activities.for('post_gets_sent_for_daily_quote').create!(
         tagged_users: {},
-        custom_payloads: {},
+        custom_payloads: {
+            post_id: options[:post_id],
+            identifier: {
+                code: 110,
+                description: 'post_gets_sent_for_daily_quote'
+            }
+        },
         body: "Your Inspiration has arrived!",
         post_id: options[:post_id]
     )
