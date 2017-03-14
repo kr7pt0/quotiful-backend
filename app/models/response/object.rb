@@ -141,6 +141,16 @@ module Response
       }
     end
 
+    def preset_category_lean_hash(preset_category = object)
+      {
+          id: negate_id(preset_category.id),
+          category_id: negate_id(preset_category.id),
+          name: preset_category.name,
+          preset_images_count: preset_category.preset_images_count,
+          preset_image_sample: preset_category.preset_image_sample
+      }
+    end
+
     def preset_image_hash(preset_image = object)
       {
         id: negate_id(preset_image.id),

@@ -165,7 +165,7 @@ class Activity < ActiveRecord::Base
                 description: 'post_gets_sent_for_daily_quote'
             }
         },
-        body: "Your Inspiration has arrived!",
+        body: "Your inspiration has arrived!",
         post_id: options[:post_id]
     )
   end

@@ -21,6 +21,14 @@ module Api
         render json: json, status: 200
       end
 
+      def all
+        @categories = PresetCategory.all
+
+        json = Response::Collection.new('preset_category_lean', @categories, { alt_key: :categories, api_version: @api_version }).to_json
+
+        render json: json, status: 200
+      end
+
       protected
 
         def ensure_params_id_exist

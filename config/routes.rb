@@ -136,7 +136,11 @@ Quotiful::Application.routes.draw do
 
         # ROUTES: api/v1/backgrounds
         resources :preset_images, path: 'backgrounds/images', only: [:show]
-        resources :preset_categories, path: 'backgrounds/categories', only: [:index, :show]
+        resources :preset_categories, path: 'backgrounds/categories', only: [:index, :show] do
+          collection do
+            get 'all', path: 'all'
+          end
+        end
 
         # ROUTES: api/v1/version
         resources :versions, path: :version, only: [:index]
