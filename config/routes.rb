@@ -140,6 +140,9 @@ Quotiful::Application.routes.draw do
           collection do
             get 'all', path: 'all'
           end
+          member do
+            get 'images'
+          end
         end
 
         # ROUTES: api/v1/version

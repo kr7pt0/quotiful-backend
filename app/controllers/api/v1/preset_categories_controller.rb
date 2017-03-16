@@ -29,6 +29,16 @@ module Api
         render json: json, status: 200
       end
 
+      def images
+        category = PresetCategory.find(params[:id])
+        count = params[:count].present? ? params[:count] : 20
+        images = category.preset_images.order("created_at DESC").page(params[:page]).per(count)
+
+        json = Response::Collection.new('preset_image', images, { page: params[:page], api_version: @api_version }).to_json
+
+        render json: json, status: 200
+      end
+
       protected
 
         def ensure_params_id_exist
