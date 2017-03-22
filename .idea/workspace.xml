@@ -78,8 +78,8 @@
       <file leaf-file-name="object.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/response/object.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5926339" vertical-offset="1494" max-vertical-offset="4440">
-              <caret line="135" column="48" selection-start-line="135" selection-start-column="48" selection-end-line="135" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.21540178" vertical-offset="1877" max-vertical-offset="4455">
+              <caret line="138" column="7" selection-start-line="138" selection-start-column="7" selection-end-line="138" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -952,8 +952,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/response/object.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5926339" vertical-offset="1494" max-vertical-offset="4440">
-          <caret line="135" column="48" selection-start-line="135" selection-start-column="48" selection-end-line="135" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.21540178" vertical-offset="1877" max-vertical-offset="4455">
+          <caret line="138" column="7" selection-start-line="138" selection-start-column="7" selection-end-line="138" selection-end-column="7" />
           <folding />
         </state>
       </provider>
