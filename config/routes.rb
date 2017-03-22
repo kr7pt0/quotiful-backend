@@ -73,6 +73,8 @@ Quotiful::Application.routes.draw do
             get 'followed_by', path: 'followed-by'
             get 'requested_by', path: 'requested-by'
             get 'recent'
+            get 'recent_lean'
+            get 'collection_lean'
             put 'spam'
           end
 

@@ -110,6 +110,27 @@ module Api
         render json: json, status: 200
       end
 
+      def recent_lean
+        @posts = instance_user.posts.order('posts.created_at DESC').page(params[:page]).per(params[:count] || 10)
+
+        json = Response::Collection.new('post_lean', @posts, {current_user_id: current_user.id, page: params[:page], instance_user_id: instance_user.id, api_version: @api_version}).to_json
+
+        render json: json, status: 200
+      end
+
+      def collection_lean
+        hash_conditions = {page: params[:page], count: params[:count]}
+        hash_conditions.reject!{ |k,v| v.blank? }
+        page = params[:page] || 1
+        count = params[:count] || 10
+
+        @posts = instance_user.collected_posts.order('collections.created_at DESC').page(page).per(count)
+
+        json = Response::Collection.new('post_lean', @posts, {current_user_id: current_user.id, page: page, api_version: @api_version}).to_json
+
+        render json: json, status: 200
+      end
+
       protected
 
         def is_current_user?
