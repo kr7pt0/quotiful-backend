@@ -130,6 +130,13 @@ module Response
       }.update(post_with_current_user_id(options[:current_user_id], post)).update(post_image_override(options[:override], post))
     end
 
+    def post_lean_hash(post = object)
+      {
+          post_id: negate_id(post.id),
+          m_thumbnail_url: post.quote_image_url('140x140#')
+      }
+    end
+
     def preset_category_hash(preset_category = object)
       {
         id: negate_id(preset_category.id),
