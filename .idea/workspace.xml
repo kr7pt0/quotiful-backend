@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40d5381f-7e2c-48b8-8226-2d2bda3eba07" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/response/object.rb" afterPath="$PROJECT_DIR$/app/models/response/object.rb" />
-    </list>
+    <list default="true" id="40d5381f-7e2c-48b8-8226-2d2bda3eba07" name="Default" comment="" />
     <ignored path="Quotiful-API.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
