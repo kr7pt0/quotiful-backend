@@ -105,7 +105,7 @@ module Api
       def recent
         @posts = instance_user.posts.order('posts.created_at DESC').page(params[:page]).per(params[:count] || 10)
 
-        json = Response::Collection.new('post_lean', @posts, {current_user_id: current_user.id, page: params[:page], instance_user_id: instance_user.id, api_version: @api_version}).to_json
+        json = Response::Collection.new('post', @posts, {current_user_id: current_user.id, page: params[:page], instance_user_id: instance_user.id, api_version: @api_version}).to_json
 
         render json: json, status: 200
       end
