@@ -145,6 +145,7 @@ module Response
           quote_image_url: post.quote_image_url,
           posted_at: post.created_at.to_i,
           likes_count: post.likes.count,
+          caption: post.caption,
           full_name: post.user.full_name,
           profile_picture_url: post.user.profile_picture_url,
           user_id: negate_id(post.user.id)
