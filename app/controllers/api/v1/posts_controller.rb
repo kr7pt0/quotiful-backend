@@ -3,7 +3,7 @@ module Api
     class PostsController < Api::BaseController
 
       before_filter :ensure_params_post_exist, only: [:create]
-      before_filter :validate_post_object, except: [:create, :editors_picks, :popular]
+      before_filter :validate_post_object, except: [:create, :editors_picks, :popular, :editors_picks_lean, :popular_lean]
 
       def create
         post = current_user.posts.build(params[:post])
