@@ -87,6 +87,8 @@ Quotiful::Application.routes.draw do
           collection do
             get 'editors_picks', path: 'editors-picks'
             get 'popular', path: 'popular'
+            get 'editors_picks_lean', path: 'editors-picks-lean'
+            get 'popular_lean', path: 'popular-lean'
           end
 
           member do
@@ -116,7 +118,11 @@ Quotiful::Application.routes.draw do
               get 'random'
             end
           end
-          resources :posts, only: [:index]
+          resources :posts, only: [:index] do
+            collection do
+              get 'lean'
+            end
+          end
           resources :quotes, only: [:index] do
             collection do
               get 'random'
