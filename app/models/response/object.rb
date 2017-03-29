@@ -146,6 +146,7 @@ module Response
           posted_at: post.created_at.to_i,
           likes_count: post.likes.count,
           caption: post.caption,
+          web_url: post_url(post.posted_at, host: DEFAULT_HOST),
           full_name: post.user.full_name,
           profile_picture_url: post.user.profile_picture_url,
           user_id: negate_id(post.user.id)
