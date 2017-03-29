@@ -139,6 +139,18 @@ module Response
       }
     end
 
+    def post_home_lean_hash(post = object)
+      {
+          post_id: negate_id(post.id),
+          quote_image_url: post.quote_image_url,
+          posted_at: post.created_at.to_i,
+          likes_count: post.likes.count,
+          full_name: post.user.full_name,
+          profile_picture_url: post.user.profile_picture_url,
+          user_id: negate_id(post.user.id)
+      }.update(post_with_current_user_id(options[:current_user_id], post)).update(post_image_override(options[:override], post))
+    end
+
     def preset_category_hash(preset_category = object)
       {
         id: negate_id(preset_category.id),
