@@ -57,7 +57,7 @@ module Api
 
         @posts = current_user.authenticated_feed(hash_conditions)
 
-        json = Response::Collection.new('post_lean', @posts, {current_user_id: current_user.id, page: params[:page], api_version: @api_version}).to_json
+        json = Response::Collection.new('post_home_lean', @posts, {current_user_id: current_user.id, page: params[:page], api_version: @api_version}).to_json
 
         render json: json, status: 200
       end
