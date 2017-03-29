@@ -69,6 +69,7 @@ Quotiful::Application.routes.draw do
           member do
             get 'daily_quote'
             get 'feed'
+            get 'feed_lean'
             get 'follows'
             get 'followed_by', path: 'followed-by'
             get 'requested_by', path: 'requested-by'

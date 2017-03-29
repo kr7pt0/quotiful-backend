@@ -4,7 +4,7 @@ module Api
       
       before_filter :ensure_params_user_exist, only: [:email_check]
       skip_before_filter :validate_authentication_token, only: [:email_check]
-      before_filter :validate_user_object, except: [:email_check, :requested_by, :feed, :suggested]
+      before_filter :validate_user_object, except: [:email_check, :requested_by, :feed, :feed_lean, :suggested]
 
       def email_check
         json = {
@@ -47,6 +47,17 @@ module Api
         @posts = current_user.authenticated_feed(hash_conditions)
 
         json = Response::Collection.new('post', @posts, {current_user_id: current_user.id, page: params[:page], api_version: @api_version}).to_json
+
+        render json: json, status: 200
+      end
+
+      def feed_lean
+        hash_conditions = {page: params[:page], count: params[:count]}
+        hash_conditions.reject!{ |k,v| v.blank? }
+
+        @posts = current_user.authenticated_feed(hash_conditions)
+
+        json = Response::Collection.new('post_lean', @posts, {current_user_id: current_user.id, page: params[:page], api_version: @api_version}).to_json
 
         render json: json, status: 200
       end
