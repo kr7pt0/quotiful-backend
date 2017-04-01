@@ -39,7 +39,7 @@ module Api
       def editors_picks_lean
         @posts = Post.editors_picked.page(params[:page]).per(params[:count] || 10)
 
-        json = Response::Collection.new('post_lean', @posts, {current_user_id: current_user.id, page: params[:page], override: true, api_version: @api_version}).to_json
+        json = Response::Collection.new('post_explore_lean', @posts, {current_user_id: current_user.id, page: params[:page], override: true, api_version: @api_version}).to_json
 
         render json: json, status: 200
       end
@@ -55,7 +55,7 @@ module Api
       def popular_lean
         @posts = Post.popular.page(params[:page]).per(params[:count] || 10)
 
-        json = Response::Collection.new('post_lean', @posts, {current_user_id: current_user.id, page: params[:page], override: true, api_version: @api_version}).to_json
+        json = Response::Collection.new('post_explore_lean', @posts, {current_user_id: current_user.id, page: params[:page], override: true, api_version: @api_version}).to_json
 
         render json: json, status: 200
       end

@@ -134,7 +134,16 @@ module Response
       {
           post_id: negate_id(post.id),
           quote_image_url: post.quote_image_url,
-          m_thumbnail_url: post.quote_image_url('140x140#'),
+          m_thumbnail_url: post.quote_image_url('56x56#'),
+          user_id: negate_id(post.user.id)
+      }
+    end
+
+    def post_explore_lean_hash(post = object)
+      {
+          post_id: negate_id(post.id),
+          quote_image_url: post.quote_image_url,
+          m_thumbnail_url: post.quote_image_url('290x290#'),
           user_id: negate_id(post.user.id)
       }
     end
