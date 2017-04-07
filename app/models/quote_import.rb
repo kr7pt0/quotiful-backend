@@ -2,7 +2,6 @@
 require "em-synchrony"
 require "em-synchrony/fiber_iterator"
 require "thread"
-require "tempfile"
 
 class QuoteImport
   # switch to ActiveModel::Model in Rails 4
@@ -87,14 +86,10 @@ class QuoteImport
   end
 
   def open_spreadsheet
-    tmpfile = Tempfile.new(file.path)
-    tmpfile.write(File.read(file.path).encode('utf-8', 'binary', invalid: :replace, undef: :replace, replace: ''))
-    tmpfile.rewind
-
     case File.extname(file.original_filename)
-    when ".csv" then Roo::Csv.new(tmpfile.path, csv_options: {encoding: Encoding::UTF_8})
-    when ".xls" then Roo::Excel.new(tmpfile.path, nil, :ignore)
-    when ".xlsx" then Roo::Excelx.new(tmpfile.path, nil, :ignore)
+    when ".csv" then Roo::Csv.new(file.path, csv_options: {encoding: Encoding::UTF_8})
+    when ".xls" then Roo::Excel.new(file.path, nil, :ignore)
+    when ".xlsx" then Roo::Excelx.new(file.path, nil, :ignore)
     else raise "Unknown file type: #{file.original_filename}"
     end
   end
