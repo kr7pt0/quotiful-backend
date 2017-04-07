@@ -87,9 +87,9 @@ class QuoteImport
 
   def open_spreadsheet
     case File.extname(file.original_filename)
-    when ".csv" then Roo::Csv.new(file.path, file_warning: :ignore)
-    when ".xls" then Roo::Excel.new(file.path, file_warning: :ignore)
-    when ".xlsx" then Roo::Excelx.new(file.path, file_warning: :ignore)
+    when ".csv" then Roo::Csv.new(file.path, csv_options: {encoding: Encoding::UTF_8})
+    when ".xls" then Roo::Excel.new(file.path, nil, :ignore)
+    when ".xlsx" then Roo::Excelx.new(file.path, nil, :ignore)
     else raise "Unknown file type: #{file.original_filename}"
     end
   end
