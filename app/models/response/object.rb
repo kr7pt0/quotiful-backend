@@ -134,7 +134,7 @@ module Response
       {
           post_id: negate_id(post.id),
           quote_image_url: post.quote_image_url,
-          m_thumbnail_url: post.quote_image_url('56x56#'),
+          m_thumbnail_url: post.quote_image_url('140x140#'),
           user_id: negate_id(post.user.id)
       }
     end
