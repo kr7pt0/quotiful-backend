@@ -78,7 +78,7 @@ class QuoteImport
     # rows.each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
       quote = Quote.new
-      quote.attributes = row.to_hash.slice(*Quote.accessible_attributes)
+      quote.attributes = row.to_hash.slice(*Quote.accessible_attributes) if my_string.to_s != ''
       quote.initialize_first_and_last_names
       quotes << quote if quote.valid?
     end
