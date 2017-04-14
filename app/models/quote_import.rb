@@ -76,14 +76,11 @@ class QuoteImport
     quotes = []
     EM::Synchrony::FiberIterator.new(rows, 250).each do |i|
     # rows.each do |i|
-      begin
-        row = Hash[[header, spreadsheet.row(i)].transpose]
-        quote = Quote.new
-        quote.attributes = row.to_hash.slice(*Quote.accessible_attributes) unless row.nil?
-        quote.initialize_first_and_last_names
-        quotes << quote if quote.valid?
-      rescue => ex
-        logger.error ex.message
+      row = Hash[[header, spreadsheet.row(i)].transpose]
+      quote = Quote.new
+      quote.attributes = row.to_hash.slice(*Quote.accessible_attributes) unless row.nil?
+      quote.initialize_first_and_last_names
+      quotes << quote if quote.valid?
     end
     return quotes
   end
