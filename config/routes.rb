@@ -76,6 +76,8 @@ Quotiful::Application.routes.draw do
             get 'recent'
             get 'recent_lean'
             get 'collection_lean'
+            get 'recent_for_download'
+            get 'collection_for_download'
             put 'spam'
           end
 

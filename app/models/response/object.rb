@@ -139,6 +139,12 @@ module Response
       }
     end
 
+    def post_for_download_hash(post = object)
+      {
+          quote_image_url: post.quote_image_url
+      }
+    end
+
     def post_explore_lean_hash(post = object)
       {
           post_id: negate_id(post.id),
