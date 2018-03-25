@@ -1,5 +1,5 @@
 == API Back end for Quotiful app
-This repository includes back end part for Quotiful project. The project included 3 parts - web site(http://quotiful.com/), mobile app(https://itunes.apple.com/us/app/quotiful-inspirational-quotes/id699466933) and back end system in this repository.
+This repository includes API back end part for Quotiful project. The project included 3 parts - web site(http://quotiful.com/), mobile app(https://itunes.apple.com/us/app/quotiful-inspirational-quotes/id699466933) and back end system in this repository.
 
 Built on Ruby on Rails, and uses Redis database server.
 
