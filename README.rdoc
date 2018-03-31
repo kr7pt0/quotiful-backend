@@ -17,3 +17,5 @@ Built on Ruby on Rails, and uses Redis database server.
     bin/rake sunspot:solr:start
 * Run app server
     bin/rails server
+
+(Uploaded for code view)
